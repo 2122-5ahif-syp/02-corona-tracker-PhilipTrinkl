@@ -1,6 +1,7 @@
 package at.htl.entities;
 
 import javax.persistence.*;
+import java.time.Instant;
 
 @Entity
 public class Person {
@@ -14,13 +15,16 @@ public class Person {
     private String email;
     @Column
     private String telephone;
+    @Column
+    private Instant timestamp;
 
-    public Person(Long id, String firstName, String lastname, String email, String telephone) {
+    public Person(Long id, String firstName, String lastname, String email, String telephone, Instant timestamp) {
         this.id = id;
         this.firstName = firstName;
         this.lastname = lastname;
         this.email = email;
         this.telephone = telephone;
+        this.timestamp = timestamp;
     }
 
     public Person() {
@@ -60,5 +64,13 @@ public class Person {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public Instant getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Instant timestamp) {
+        this.timestamp = timestamp;
     }
 }
